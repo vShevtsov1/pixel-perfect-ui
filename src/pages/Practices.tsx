@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Search, Users, Star, TrendingUp, Plus, Clock, Calendar } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const practices = [
   {
@@ -67,6 +68,8 @@ const selectedPractice = {
 };
 
 const Practices = () => {
+  const navigate = useNavigate();
+  
   return (
     <DashboardLayout title="Управління практиками" subtitle="Ваші програми та сесії">
       <div className="space-y-6">
@@ -79,7 +82,7 @@ const Practices = () => {
               className="pl-10 h-11"
             />
           </div>
-          <Button size="lg" className="h-11 px-6 font-semibold">
+          <Button size="lg" className="h-11 px-6 font-semibold" onClick={() => navigate("/practices/create")}>
             <Plus className="w-5 h-5 mr-2" />
             Створити практику
           </Button>
